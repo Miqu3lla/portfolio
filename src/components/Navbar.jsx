@@ -19,7 +19,7 @@ export default function Navbar() {
                 </section>
                 <section className = 'flex gap-5 text-[20px] mr-50  '>
                     {['Home', 'Tech Stack', 'Projects', 'Resume'].map((item) => (
-                        <h2 key={item} onClick={() => handleNavClick(item)} className = 'transition-colors  hover:text-yellow-600 hover:cursor-pointer'>{item}</h2>
+                        <h2 key={item} onClick={() => handleNavClick(item)} className = 'transition-colors  hover:text-yellow-600 hover:cursor-pointer '>{item}</h2>
                     ))}
                 </section>
             </nav>

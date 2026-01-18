@@ -1,10 +1,7 @@
-import Rani from '../assets/rani.jpg'
-import Picture from '../assets/download.jpg'
-import AnotherRani from '../assets/Rani-again.jpg'
 import {useState, useEffect} from 'react'
 import StackCard from '../components/StackCard.jsx'
 
-const images = [Rani, Picture, AnotherRani];
+const images = ['/rani.jpg', '/download.jpg', '/Rani-again.jpg'];
 const title = ['react', 'javascript', 'HTML', 'CSS', 'tailwind', 'nodejs', 'mongoDB', 'vuejs', 'expressjs', 'Git']
 const description = ['frontend library', 'programming language', 'markup language', 'styling', 'css framework', 'backend ' ,'database', 'frontend framework', 'backend framework', 'version control']
 
@@ -27,7 +24,7 @@ export default function Home() {
                 <p className='mt-5 text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
             </div>
             <div>
-                <img src={img} alt="Profile Picture" className='h-170 w-full max-w-xl mt-30 m-20 rounded-md'/>
+                <img src={img} alt="Profile Picture" className='h-170 w-full max-w-xl mt-30 m-20 rounded-md object-cover'/>
             </div>
         </section>
         <section>
