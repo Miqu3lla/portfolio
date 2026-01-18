@@ -1,19 +1,22 @@
 import Rani from '../assets/rani.jpg'
 import Picture from '../assets/download.jpg'
+import AnotherRani from '../assets/Rani-again.jpg'
 import {useState, useEffect} from 'react'
 import StackCard from '../components/StackCard.jsx'
 
-export default function Home() {
-    const [img, setImg] = useState(Rani);
-    const title = ['react', 'javascript', 'HTML', 'CSS', 'tailwind', 'nodejs', 'mongoDB', 'vuejs', 'expressjs', 'Git']
-    const description = ['frontend library', 'programming language', 'markup language', 'styling', 'css framework', 'backend ' ,'database', 'frontend framework', 'backend framework', 'version control']
+const images = [Rani, Picture, AnotherRani];
+const title = ['react', 'javascript', 'HTML', 'CSS', 'tailwind', 'nodejs', 'mongoDB', 'vuejs', 'expressjs', 'Git']
+const description = ['frontend library', 'programming language', 'markup language', 'styling', 'css framework', 'backend ' ,'database', 'frontend framework', 'backend framework', 'version control']
 
+export default function Home() {
+    const [img, setImg] = useState(images[0]);
     useEffect(() => {
         const interval = setInterval(()=> {
-            setImg((currentImg) => (currentImg === Rani ? Picture : Rani));
+            const randomIndex = Math.floor(Math.random() * images.length);
+            setImg(images[randomIndex]);
         }, 3000);
         return () => clearInterval(interval);
-    }, []);
+    },[]);
 
 
     return (
