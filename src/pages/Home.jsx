@@ -11,9 +11,8 @@ const description = ['frontend library', 'programming language', 'markup languag
 export default function Home() {
     const [img, setImg] = useState(images[0]);
     useEffect(() => {
-        const interval = setInterval(()=> {
-            const randomIndex = Math.floor(Math.random() * images.length);
-            setImg(images[randomIndex]);
+        const interval = setInterval(()=> {;
+            setImg(images[Math.floor(Math.random() * images.length)]);
         }, 3000);
         return () => clearInterval(interval);
     },[]);
