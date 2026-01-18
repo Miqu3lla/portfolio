@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import HomePage from '../pages/HomePage.jsx'
+import HomePage from '../pages/Home.jsx'
 
 export default function AppRoutes() {
 
