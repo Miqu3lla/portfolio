@@ -1,5 +1,5 @@
 import './main.css'
-import Navbar from './components/navbar.jsx'
+import Navbar from './components/Navbar.jsx'
 import AppRoutes from './router/router.jsx'
 function App() {
 
