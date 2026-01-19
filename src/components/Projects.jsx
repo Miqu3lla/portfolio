@@ -5,10 +5,10 @@ import TechStack from './TechStack.jsx';
 export default function Projects({title, description, image, liveDemoLink, githubLink, stack = []}) {
 
     return (
-        <main id = 'projects' className = 'mb-20'>
-            <section className = 'flex flex-col  max-w-md shadow-xl m-5 rounded-md '>
-                <div className = 'overflow-hidden rounded-t-md'>
-                <img src = {image} alt = {title} className = 'object-cover w-full h-60 rounded-t-md hover:scale-105 transition-transform '/>
+        <main  className = 'mb-20'>
+            <section id = 'projects' className = 'flex flex-col  max-w-md shadow-xl m-5 rounded-md hover:-translate-y-2 transition-transform '>
+                <div className = ' rounded-t-md'>
+                <img src = {image} alt = {title} className = 'object-cover w-full h-60 rounded-t-md  '/>
                 </div>
                 <div className = ' ml-5 mr-5 mt-3'>
                 <h1 className = 'text-2xl font-bold'>{title}</h1>

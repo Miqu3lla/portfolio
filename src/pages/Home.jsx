@@ -67,7 +67,7 @@ export default function Home() {
             </div>
         </section>
         <section>
-            <div id = 'tech-stack'>
+            <div id = 'tech-stack' className = 'scroll-mt-28'>
             <h1 className = 'text-center text-4xl font-bold'>Tech Stack</h1>
             <p className='text-center text-gray-600 mt-5'>Technologies and tools I work with</p>
             </div>
@@ -77,7 +77,7 @@ export default function Home() {
                 ))}
             </div>
         </section>
-        <section id = 'projects' className = 'mb-20'>
+        <section id = 'projects' className = 'mb-20 scroll-mt-28'>
             <div>
             <h1 className = 'text-center text-4xl font-bold'>Featured Projects</h1>
             <p className='text-center text-gray-600 mt-5'>Some of my recent works</p>
