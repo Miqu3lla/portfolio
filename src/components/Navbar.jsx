@@ -1,13 +1,19 @@
 
-
+import { useState } from 'react';
 export default function Navbar() {
 
+    const [activeSection, setActiveSection] = useState('Home');
+
     const handleNavClick = (sectionId) => {
+        setActiveSection(sectionId);
         if (sectionId === 'Tech Stack') {
             document.getElementById('tech-stack').scrollIntoView({ behavior: 'smooth' });
         }
         else if (sectionId === 'Home') {
             document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        }
+        else if (sectionId === 'Projects') {
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
         }
     }
 
@@ -19,7 +25,7 @@ export default function Navbar() {
                 </section>
                 <section className = 'flex gap-5 text-[20px] mr-50  '>
                     {['Home', 'Tech Stack', 'Projects', 'Resume'].map((item) => (
-                        <h2 key={item} onClick={() => handleNavClick(item)} className = 'transition-colors  hover:text-yellow-600 hover:cursor-pointer '>{item}</h2>
+                        <h2 key={item} onClick={() => handleNavClick(item)} className = {`transition-colors hover:text-yellow-600 hover:cursor-pointer ${activeSection === item ? 'text-yellow-600' : ''}`}>{item}</h2>
                     ))}
                 </section>
             </nav>
