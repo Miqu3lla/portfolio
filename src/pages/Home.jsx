@@ -17,6 +17,33 @@ const techStack = [
     { title: 'Git', description: 'version control' }
 ];
 
+const projects = [
+    {
+        title: 'Expense Management System',
+        description: 'A web application to track and manage personal expenses with data visualization using Chart.js. Features include adding, editing, and deleting expenses, categorization, and monthly reports.',
+        image: '/Project1.png',
+        liveDemoLink: 'https://personal-expense-management-system.vercel.app/Dashboard',
+        githubLink: 'https://github.com/Miqu3lla/Personal-Expense-Management-System',
+        stack: ['VueJS', 'Tailwind', 'Chart.js']
+    },
+    {
+        title: 'Simple Weather App',
+        description: 'A web application that fetches and displays live weather data using the OpenWeatherMap API, it has features like search by city and a live search suggestion every time you type',
+        image: '/Project2.png',
+        liveDemoLink: 'https://simple-weather-app-6qea.vercel.app',
+        githubLink: 'https://github.com/Miqu3lla/Simple-Weather-App',
+        stack: ['VueJS','Tailwind', 'OpenWeather API']
+    },
+    {
+        title: 'Moonlit Thoughts',
+        description: 'Built with VueJS. A Full-Stack personal blog website where i share my Learning Experiences as a developer, with a clean and responsive design using Tailwind CSS. Features include guest and user authentication, CRUD operations for posts a Dashboard for posts management.',
+        image: '/Project3.png',
+        liveDemoLink: 'https://miq-s-journey.vercel.app/home',
+        githubLink: 'https://github.com/Miqu3lla/Miq-s-Journey',
+        stack: ['VueJS', 'Tailwind', 'NodeJS', 'ExpressJS', 'MongoDB']
+    }
+]
+
 export default function Home() {
     const [img, setImg] = useState(images[0]);
     useEffect(() => {
@@ -55,10 +82,10 @@ export default function Home() {
             <h1 className = 'text-center text-4xl font-bold'>Featured Projects</h1>
             <p className='text-center text-gray-600 mt-5'>Some of my recent works</p>
             </div>
-            <div className = 'mt-10'>
-                <Projects title = 'Expense Management System' 
-                description = 'A web application to track and manage personal expenses with user authentication and data visualization features.' 
-                image = '/rani.jpg'/>
+            <div className = 'mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex justify-center'>
+                {projects.map((project) => (
+                    <Projects key = {project.title} title={project.title} description={project.description} image={project.image} liveDemoLink={project.liveDemoLink} githubLink={project.githubLink} stack={project.stack} />
+                ))}
             </div>
         </section>
         </main>
