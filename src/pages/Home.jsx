@@ -77,7 +77,7 @@ export default function Home() {
             </div>
             {/* Rotating profile image */}
             <div className='flex justify-center '>
-                <img src={img} alt="Profile Picture" className='h-170 w-full  max-w-xl m-20 mt-30 rounded-md'/>
+                <img src={img} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
             </div>
         </section>
 
