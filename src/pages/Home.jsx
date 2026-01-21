@@ -2,8 +2,10 @@ import {useState, useEffect} from 'react'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 
+// Hero section images - rotates randomly every 3 seconds
 const images = ['/rani.jpg', '/download.jpg', '/Rani-again.jpg'];
 
+// Tech stack data - displayed in the Skills section
 const techStack = [
     { title: 'React', description: 'frontend library' },
     { title: 'JavaScript', description: 'programming language' },
@@ -17,6 +19,7 @@ const techStack = [
     { title: 'Git', description: 'version control' }
 ];
 
+// Projects data - each project has title, description, image, links, and tech stack
 const projects = [
     {
         title: 'Expense Management System',
@@ -44,45 +47,62 @@ const projects = [
     }
 ]
 
+/**
+ * Home Component
+ * Main page containing Hero, Tech Stack, and Projects sections
+ */
 export default function Home() {
+    // State for rotating hero image
     const [img, setImg] = useState(images[0]);
+    
+    // Rotate hero image randomly every 3 seconds
     useEffect(() => {
         const interval = setInterval(()=> {;
             setImg(images[Math.floor(Math.random() * images.length)]);
         }, 3000);
+        // Cleanup interval on component unmount
         return () => clearInterval(interval);
     },[]);
 
 
     return (
         <main>
-        <section id = 'home'className = 'flex justify-between '>
-            <div  className = 'w-full max-w-lg flex flex-col justify-center'>
-                <h1 className='text-7xl font-bold '>Hello, I'm <span className='text-yellow-600'>Miq!</span></h1>
-                <p className='mt-7 text-2xl text-gray-500'>Full Stack Developer / Front-End Focused</p>
-                <p className='mt-5 text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
+        {/* ===== HERO SECTION ===== */}
+        <section id = 'home'className = 'flex flex-col lg:flex-row justify-between items-center'>
+            {/* Introduction text */}
+            <div  className = 'w-full max-w-lg flex flex-col justify-center text-center lg:text-left mt-20 lg:mt-0'>
+                <h1 className='text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-dark'>Hello, I'm <span className='text-primary'>Miq!</span></h1>
+                <p className='mt-5 lg:mt-7 text-xl sm:text-2xl text-gray-500'>Full Stack Developer / Front-End Focused</p>
+                <p className='mt-3 lg:mt-5 text-base sm:text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
             </div>
-            <div>
-                <img src={img} alt="Profile Picture" className='h-170 w-full max-w-xl mt-30 m-20 rounded-md object-cover'/>
+            {/* Rotating profile image */}
+            <div className='w-full flex justify-center lg:justify-end'>
+                <img src={img} alt="Profile Picture" className='h-80 sm:h-120 lg:h-170 w-full max-w-sm sm:max-w-md lg:max-w-xl mt-10 lg:mt-30 mx-4 lg:m-20 rounded-md object-cover'/>
             </div>
         </section>
+
+        {/* ===== TECH STACK SECTION ===== */}
         <section>
             <div id = 'tech-stack' className = 'scroll-mt-28'>
-            <h1 className = 'text-center text-4xl font-bold'>Tech Stack</h1>
-            <p className='text-center text-gray-600 mt-5'>Technologies and tools I work with</p>
+            <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Tech Stack</h1>
+            <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Technologies and tools I work with</p>
             </div>
-            <div className = 'grid grid-cols-5 gap-3 mt-10 mb-10'>
+            {/* Map through techStack array and render StackCard for each */}
+            <div className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6 sm:mt-10 mb-10'>
                 {techStack.map((tech) => (
                     <StackCard key={tech.title} title={tech.title} subtitle={tech.description} />
                 ))}
             </div>
         </section>
+
+        {/* ===== PROJECTS SECTION ===== */}
         <section id = 'projects' className = 'mb-20 scroll-mt-28'>
             <div>
-            <h1 className = 'text-center text-4xl font-bold'>Featured Projects</h1>
-            <p className='text-center text-gray-600 mt-5'>Some of my recent works</p>
+            <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Featured Projects</h1>
+            <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Some of my recent works</p>
             </div>
-            <div className = 'mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 flex justify-center'>
+            {/* Map through projects array and render Projects card for each */}
+            <div className = 'mt-6 sm:mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 justify-items-center'>
                 {projects.map((project) => (
                     <Projects key = {project.title} title={project.title} description={project.description} image={project.image} liveDemoLink={project.liveDemoLink} githubLink={project.githubLink} stack={project.stack} />
                 ))}

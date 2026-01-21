@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <Navbar />
-    <div className='mx-53'>
+    <div className='mx-4 sm:mx-10 md:mx-20 lg:mx-53'>
       <AppRoutes />
     </div>
     </>
