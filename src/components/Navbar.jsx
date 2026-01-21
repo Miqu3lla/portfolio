@@ -1,4 +1,5 @@
 import { useState, useEffect} from 'react';
+import { Icon } from '@iconify/react';
 
 // Navigation items array - add or remove items here
 const NavItems = ['Home', 'Tech Stack', 'Projects', 'About']
@@ -15,6 +16,7 @@ export default function Navbar() {
         const saved = localStorage.getItem('activeSection');
         return saved || 'Home';
     });
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     // On mount: scroll to saved section from localStorage
     useEffect(() => {
@@ -62,14 +64,26 @@ export default function Navbar() {
     
     return (
         <main className = 'fixed top-0 left-0 right-0 bg-primary-dark shadow-md z-10'>
-            <nav className = 'flex flex-col sm:flex-row justify-between m-3 sm:m-5 font-semibold text-xl sm:text-2xl'>
-                <section className = 'ml-4 sm:ml-10 lg:ml-50 text-center sm:text-left'>
+            <nav className = 'flex  justify-between m-3 m-5 font-semibold text-xl sm:text-2xl'>
+                <section className = 'ml-4 sm:ml-10 lg:ml-50 '>
                     <h1 className='text-primary-light'>Portfolio</h1>
                 </section>
-                <section className = 'flex gap-3 sm:gap-5 text-[16px] sm:text-[20px] mr-4 sm:mr-10 lg:mr-50 justify-center sm:justify-end mt-2 sm:mt-0'>
+                <section className = 'flex gap-3 ml-auto lg:pr-55 sm:gap-5 text-[16px] sm:text-[20px] mr-4 sm:mr-10'>
                     {NavItems.map((item) => (
-                        <h2 key={item} onClick={() => handleNavClick(item)} className = {`transition-colors hover:text-primary-light hover:cursor-pointer ${activeSection === item ? 'text-primary-light ' : ''}`}>{item}</h2>
+                        <h2 key={item} onClick={() => handleNavClick(item)} className = {`hidden transition-colors hover:text-primary-light hover:cursor-pointer md:block lg:block xl:block ${activeSection === item ? 'text-primary-light ' : ''}`}>{item}</h2>
                     ))}
+                    <div className = 'md:hidden lg:hidden xl:hidden '>
+                    <Icon icon="mdi:menu" className="text-4xl md:hidden cursor-pointer hover:text-primary-light transition-colors" onClick = {() => setIsMenuOpen(!isMenuOpen)}/>
+                    </div>
+                </section>
+                <section>
+                <div className = {`flex flex-col bg-primary-dark absolute top-16 right-0 w-full border border-primary-dark rounded-md shadow-lg p-4 md:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}`}>
+                    <h1>
+                        {NavItems.map((item) => (
+                            <div key={item} onClick={() => {handleNavClick(item); setIsMenuOpen(false);}} className = {`px-4 py-2 hover:bg-primary hover:text-white cursor-pointer border-b border-primary-dark ${activeSection === item ? 'bg-primary text-white' : ''}`}>{item}</div>
+                        ))}
+                    </h1>
+                </div>
                 </section>
             </nav>
         </main>
