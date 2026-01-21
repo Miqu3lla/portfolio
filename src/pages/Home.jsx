@@ -78,10 +78,10 @@ export default function Home() {
                 
                 {/* Social Icons */}
                 <div className='flex justify-center lg:justify-start gap-4 mt-6'>
-                    <a href='#' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
+                    <a href='https://github.com/Miqu3lla' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
                         <Icon icon='mdi:github' className='text-2xl text-gray-700' />
                     </a>
-                    <a href='#' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
+                    <a href='https://www.linkedin.com/in/javier-jaypee-722999383/' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
                         <Icon icon='mdi:linkedin' className='text-2xl text-blue-600' />
                     </a>
                 </div>
