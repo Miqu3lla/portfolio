@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react'
+import { Icon } from '@iconify/react'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 
@@ -66,7 +67,7 @@ export default function Home() {
 
 
     return (
-        <main>
+        <main className=''>
         {/* ===== HERO SECTION ===== */}
         <section id = 'home'className = 'flex flex-col lg:flex-row justify-between items-center'>
             {/* Introduction text */}
@@ -74,6 +75,22 @@ export default function Home() {
                 <h1 className='text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-dark'>Hello, I'm <span className='text-primary'>Miq!</span></h1>
                 <p className='mt-5 lg:mt-7 text-xl sm:text-2xl text-gray-500'>Full Stack Developer / Front-End Focused</p>
                 <p className='mt-3 lg:mt-5 text-base sm:text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
+                
+                {/* Social Icons */}
+                <div className='flex justify-center lg:justify-start gap-4 mt-6'>
+                    <a href='#' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
+                        <Icon icon='mdi:github' className='text-2xl text-gray-700' />
+                    </a>
+                    <a href='#' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
+                        <Icon icon='mdi:linkedin' className='text-2xl text-blue-600' />
+                    </a>
+                </div>
+
+                {/* Download Resume Button */}
+                <button className='bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 mt-6 transition-colors mx-auto lg:mx-0'>
+                    <Icon icon='mdi:download' className='text-xl' />
+                    Download Resume
+                </button>
             </div>
             {/* Rotating profile image */}
             <div className='flex justify-center '>
@@ -108,6 +125,19 @@ export default function Home() {
                 ))}
             </div>
         </section>
+
+        {/* Divider line */}
+        <hr className='border-gray-300 ' />
+
+        {/* ===== FOOTER SECTION ===== */}
+        <footer className='  py-8 mt-10'>
+            <div className='container mx-auto px-4 text-center'>
+                <p className='text-lg font-semibold opacity-50'>Miq</p>
+                <p className='text-gray-400 mt-2 text-sm'>Full Stack Developer</p>
+                <hr className='my-4 border-gray-600 w-1/2 mx-auto' />
+                <p className='text-gray-400 text-sm'>&copy; {new Date().getFullYear()} Miq. All rights reserved.</p>
+            </div>
+        </footer>
         </main>
     )
 }

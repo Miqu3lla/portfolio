@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react';
 import { Icon } from '@iconify/react';
 
 // Navigation items array - add or remove items here
-const NavItems = ['Home', 'Tech Stack', 'Projects', 'About']
+const NavItems = ['Home', 'Tech Stack', 'Projects']
 
 /**
  * Navbar Component
@@ -64,11 +64,11 @@ export default function Navbar() {
     
     return (
         <main className = 'fixed top-0 left-0 right-0 bg-primary-dark shadow-md z-10'>
-            <nav className = 'flex  justify-between m-3 m-5 font-semibold text-xl sm:text-2xl'>
+            <nav className = 'flex  justify-between m-5 font-semibold text-xl sm:text-2xl'>
                 <section className = 'ml-4 sm:ml-10 lg:ml-50 '>
                     <h1 className='text-primary-light'>Portfolio</h1>
                 </section>
-                <section className = 'flex gap-3 ml-auto lg:pr-55 sm:gap-5 text-[16px] sm:text-[20px] mr-4 sm:mr-10'>
+                <section className = 'flex gap-3 ml-auto lg:pr-55 sm:gap-5 text-[16px] sm:text-[20px] mr-4 sm:mr-10 xl:gap-10'>
                     {NavItems.map((item) => (
                         <h2 key={item} onClick={() => handleNavClick(item)} className = {`hidden transition-colors hover:text-primary-light hover:cursor-pointer md:block lg:block xl:block ${activeSection === item ? 'text-primary-light ' : ''}`}>{item}</h2>
                     ))}
