@@ -73,7 +73,7 @@ export default function Navbar() {
                         <h2 key={item} onClick={() => handleNavClick(item)} className = {`hidden transition-colors hover:text-primary-light hover:cursor-pointer md:block lg:block xl:block ${activeSection === item ? 'text-primary-light ' : ''}`}>{item}</h2>
                     ))}
                     <div className = 'md:hidden lg:hidden xl:hidden '>
-                    <Icon icon="mdi:menu" className="text-4xl md:hidden cursor-pointer hover:text-primary-light transition-colors" onClick = {() => setIsMenuOpen(!isMenuOpen)}/>
+                    <Icon icon="mdi:menu" className={`text-4xl md:hidden cursor-pointer hover:text-primary-light transition-colors${isMenuOpen ? ' text-primary-light' : ''}`} onClick = {() => setIsMenuOpen(!isMenuOpen)}/>
                     </div>
                 </section>
                 <section>

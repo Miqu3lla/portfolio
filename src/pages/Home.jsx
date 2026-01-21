@@ -70,7 +70,7 @@ export default function Home() {
         {/* ===== HERO SECTION ===== */}
         <section id = 'home'className = 'flex flex-col lg:flex-row justify-between items-center'>
             {/* Introduction text */}
-            <div  className = 'w-full max-w-lg flex flex-col justify-center text-center lg:text-left mt-20 lg:mt-0'>
+            <div  className = 'w-full max-w-lg flex flex-col justify-center text-center lg:text-left mt-30 lg:mt-0'>
                 <h1 className='text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-dark'>Hello, I'm <span className='text-primary'>Miq!</span></h1>
                 <p className='mt-5 lg:mt-7 text-xl sm:text-2xl text-gray-500'>Full Stack Developer / Front-End Focused</p>
                 <p className='mt-3 lg:mt-5 text-base sm:text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
