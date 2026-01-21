@@ -76,8 +76,8 @@ export default function Home() {
                 <p className='mt-3 lg:mt-5 text-base sm:text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
             </div>
             {/* Rotating profile image */}
-            <div className='flex'>
-                <img src={img} alt="Profile Picture" className='h-170 w-full max-w-xl m-20 mt-30 rounded-md'/>
+            <div className='flex justify-center '>
+                <img src={img} alt="Profile Picture" className='h-170 w-full  max-w-xl m-20 mt-30 rounded-md'/>
             </div>
         </section>
 
