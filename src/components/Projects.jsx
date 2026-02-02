@@ -6,7 +6,7 @@ export default function Projects({title, description, image, liveDemoLink, githu
 
     return (
         <main  className = 'mb-20'>
-            <section id = 'projects' className = 'flex flex-col  max-w-md shadow-xl m-5 rounded-md hover:-translate-y-2 transition-transform border border-primary-dark hover:border-4 hover:shadow-2xl'>
+            <section id = 'projects' className = 'flex flex-col  max-w-md shadow-xl m-5 rounded-md hover:-translate-y-2 transition-transform  hover:shadow-2xl'>
                 <div className = ' rounded-t-md'>
                 <img src = {image} alt = {title} className = 'object-cover w-full h-60 rounded-t-md  '/>
                 </div>

@@ -2,9 +2,10 @@ import {useState, useEffect} from 'react'
 import { Icon } from '@iconify/react'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
+import AnimatedSection from '../components/AnimatedSection.jsx'
 
 // Hero section images - rotates randomly every 3 seconds
-const images = ['/rani.jpg', '/download.jpg', '/Rani-again.jpg'];
+const images = ['/rani.jpg', '/download.jpg', '/me.png'];
 
 // Tech stack data - displayed in the Skills section
 const techStack = [
@@ -71,7 +72,7 @@ export default function Home() {
         {/* ===== HERO SECTION ===== */}
         <section id = 'home'className = 'flex flex-col lg:flex-row justify-between items-center'>
             {/* Introduction text */}
-            <div  className = 'w-full max-w-lg flex flex-col justify-center text-center lg:text-left mt-30 lg:mt-0'>
+            <AnimatedSection animation="fadeRight" className='w-full max-w-lg flex flex-col justify-center text-center lg:text-left mt-30 lg:mt-0'>
                 <h1 className='text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-dark'>Hello, I'm <span className='text-primary'>Miq!</span></h1>
                 <p className='mt-5 lg:mt-7 text-xl sm:text-2xl text-gray-500'>Full Stack Developer / Front-End Focused</p>
                 <p className='mt-3 lg:mt-5 text-base sm:text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
@@ -91,37 +92,45 @@ export default function Home() {
                     <Icon icon='mdi:download' className='text-xl' />
                     Download Resume
                 </button>
-            </div>
+            </AnimatedSection>
             {/* Rotating profile image */}
-            <div className='flex justify-center '>
+            <AnimatedSection animation="fadeLeft" delay={200} className='flex justify-center'>
                 <img src={img} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
-            </div>
+            </AnimatedSection>
         </section>
 
         {/* ===== TECH STACK SECTION ===== */}
         <section>
-            <div id = 'tech-stack' className = 'scroll-mt-28'>
-            <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Tech Stack</h1>
-            <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Technologies and tools I work with</p>
-            </div>
+            <AnimatedSection animation="fadeUp">
+                <div id = 'tech-stack' className = 'scroll-mt-28'>
+                <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Tech Stack</h1>
+                <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Technologies and tools I work with</p>
+                </div>
+            </AnimatedSection>
             {/* Map through techStack array and render StackCard for each */}
             <div className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6 sm:mt-10 mb-10'>
-                {techStack.map((tech) => (
-                    <StackCard key={tech.title} title={tech.title} subtitle={tech.description} />
+                {techStack.map((tech, index) => (
+                    <AnimatedSection key={tech.title} animation="scaleUp" delay={index * 50}>
+                        <StackCard title={tech.title} subtitle={tech.description} />
+                    </AnimatedSection>
                 ))}
             </div>
         </section>
 
         {/* ===== PROJECTS SECTION ===== */}
         <section id = 'projects' className = 'mb-20 scroll-mt-28'>
-            <div>
-            <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Featured Projects</h1>
-            <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Some of my recent works</p>
-            </div>
+            <AnimatedSection animation="fadeUp">
+                <div>
+                <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Featured Projects</h1>
+                <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Some of my recent works</p>
+                </div>
+            </AnimatedSection>
             {/* Map through projects array and render Projects card for each */}
             <div className = 'mt-6 sm:mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 justify-items-center'>
-                {projects.map((project) => (
-                    <Projects key = {project.title} title={project.title} description={project.description} image={project.image} liveDemoLink={project.liveDemoLink} githubLink={project.githubLink} stack={project.stack} />
+                {projects.map((project, index) => (
+                    <AnimatedSection key={project.title} animation="fadeUp" delay={index * 150}>
+                        <Projects title={project.title} description={project.description} image={project.image} liveDemoLink={project.liveDemoLink} githubLink={project.githubLink} stack={project.stack} />
+                    </AnimatedSection>
                 ))}
             </div>
         </section>
@@ -130,14 +139,16 @@ export default function Home() {
         <hr className='border-gray-300 ' />
 
         {/* ===== FOOTER SECTION ===== */}
-        <footer className='  py-8 mt-10'>
-            <div className='container mx-auto px-4 text-center'>
-                <p className='text-lg font-semibold opacity-50'>Miq</p>
-                <p className='text-gray-400 mt-2 text-sm'>Full Stack Developer</p>
-                <hr className='my-4 border-gray-600 w-1/2 mx-auto' />
-                <p className='text-gray-400 text-sm'>&copy; {new Date().getFullYear()} Miq. All rights reserved.</p>
-            </div>
-        </footer>
+        <AnimatedSection animation="fadeIn">
+            <footer className='  py-8 mt-10'>
+                <div className='container mx-auto px-4 text-center'>
+                    <p className='text-lg font-semibold opacity-50'>Miq</p>
+                    <p className='text-gray-400 mt-2 text-sm'>Full Stack Developer</p>
+                    <hr className='my-4 border-gray-600 w-1/2 mx-auto' />
+                    <p className='text-gray-400 text-sm'>&copy; {new Date().getFullYear()} Miq. All rights reserved.</p>
+                </div>
+            </footer>
+        </AnimatedSection>
         </main>
     )
 }
