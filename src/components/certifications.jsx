@@ -1,20 +1,28 @@
 
 
+import { Icon } from '@iconify/react';
+
 function CertificationCard({ image, title, description, link }) {
     return (
-        <div className='flex flex-col items-center bg-secondary-dark rounded-2xl p-6 shadow-lg w-72'>
-            <img src={image} alt={title} className='w-full h-40 object-cover rounded-xl mb-4' />
-            <h2 className='text-xl font-bold text-primary-light mb-2 text-center'>{title}</h2>
-            <p className='text-sm text-gray-400 text-center mb-4'>{description}</p>
-            <a
-                href={link}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='px-4 py-2 bg-accent text-white rounded-lg hover:opacity-80 transition'
-            >
-                View Certificate
-            </a>
-        </div>
+        <main className='mb-20'>
+            <section className='flex flex-col max-w-md shadow-xl m-5 rounded-md hover:-translate-y-2 transition-transform hover:shadow-2xl'>
+                <div className='rounded-t-md'>
+                    <img src={image} alt={title} className='object-cover w-full h-60 rounded-t-md' />
+                </div>
+                <div className='ml-5 mr-5 mt-3'>
+                    <h1 className='text-2xl font-bold'>{title}</h1>
+                    <p className='text-gray-600 mt-3'>{description}</p>
+                </div>
+                <div className='flex flex-col sm:flex-row gap-3 ml-5 mr-5 sm:mr-0 mb-5 mt-5'>
+                    <a href={link} target='_blank' rel='noopener noreferrer'>
+                        <button className='bg-primary text-white px-4 sm:px-6 py-3 rounded-full hover:bg-primary-dark hover:cursor-pointer transition-colors w-full sm:w-48 h-12 flex items-center justify-center gap-2'>
+                            <Icon icon='mdi:certificate' width='20' height='20' />
+                            View Certificate
+                        </button>
+                    </a>
+                </div>
+            </section>
+        </main>
     );
 }
 
