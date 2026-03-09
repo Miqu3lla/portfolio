@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 import AnimatedSection from '../components/AnimatedSection.jsx'
+import Certification from '../components/certifications.jsx'
 
 
 
@@ -56,12 +57,24 @@ const projects = [
     }
 ]
 
+const certifications = [
+    {
+        image: 'a',
+        title: 'Udemy Full Stack Developer course - Angela Yu',
+        description: 'a',
+        link: 'a'
+
+    }
+]
+
+
 /**
  * Home Component
  * Main page containing Hero, Tech Stack, and Projects sections
  */
 export default function Home() {
 
+const [title, setTitle] = useState('Projects');
 
     return (
         <main className=''>
@@ -91,7 +104,7 @@ export default function Home() {
             </AnimatedSection>
             {/* Rotating profile image */}
             <AnimatedSection animation="fadeLeft" delay={200} className='flex justify-center'>
-                <img src={'/me.png'} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
+                <img src={'/myself.png'} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
             </AnimatedSection>
         </section>
 
@@ -117,15 +130,22 @@ export default function Home() {
         <section id = 'projects' className = 'mb-20 scroll-mt-28'>
             <AnimatedSection animation="fadeUp">
                 <div>
-                <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Featured Projects</h1>
-                <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Some of my recent works</p>
+                <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Projects / Certifications</h1>
+                <div className='flex justify-center gap-3 mt-5'>
+                    <p onClick={() => setTitle('Projects')} className={`px-6 py-2 rounded-full font-semibold cursor-pointer transition-colors ${title === 'Projects' ? 'bg-primary text-white' : 'border-2 border-primary text-primary hover:bg-primary-light'}`}>Projects</p>
+                    <p onClick={() => setTitle('Certifications')} className={`px-6 py-2 rounded-full font-semibold cursor-pointer transition-colors ${title === 'Certifications' ? 'bg-primary text-white' : 'border-2 border-primary text-primary hover:bg-primary-light'}`}>Certifications</p>
+                </div>
                 </div>
             </AnimatedSection>
             {/* Map through projects array and render Projects card for each */}
             <div className = 'mt-6 sm:mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 justify-items-center'>
-                {projects.map((project, index) => (
+                { title === 'Projects' ? projects.map((project, index) => (
                     <AnimatedSection key={project.title} animation="fadeUp" delay={index * 150}>
                         <Projects title={project.title} description={project.description} image={project.image} liveDemoLink={project.liveDemoLink} githubLink={project.githubLink} stack={project.stack} />
+                    </AnimatedSection>
+                )) : certifications.map((cert, index) => (
+                    <AnimatedSection key={cert.title} animation="fadeUp" delay={index * 150}>
+                        <Certification title={cert.title} description={cert.description} image={cert.image} link={cert.link} />
                     </AnimatedSection>
                 ))}
             </div>
