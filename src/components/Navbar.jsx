@@ -66,7 +66,7 @@ export default function Navbar() {
         <main className = 'fixed top-0 left-0 right-0 bg-primary-dark shadow-md z-10'>
             <nav className = 'flex  justify-between m-5 font-semibold text-xl sm:text-2xl'>
                 <section className = 'ml-4 sm:ml-10 lg:ml-50 '>
-                    <h1 className='text-primary-light'>Portfolio</h1>
+                    <h1 className='text-primary-light'>Miqx.dev</h1>
                 </section>
                 <section className = 'flex gap-3 ml-auto lg:pr-55 sm:gap-5 text-[16px] sm:text-[20px] mr-4 sm:mr-10 xl:gap-10'>
                     {NavItems.map((item) => (

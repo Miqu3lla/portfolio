@@ -4,8 +4,7 @@ import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 import AnimatedSection from '../components/AnimatedSection.jsx'
 
-// Hero section images - rotates randomly every 3 seconds
-const images = ['/rani.jpg', '/download.jpg', '/me.png'];
+
 
 // Tech stack data - displayed in the Skills section
 const techStack = [
@@ -46,6 +45,14 @@ const projects = [
         liveDemoLink: 'https://miq-s-journey.vercel.app/home',
         githubLink: 'https://github.com/Miqu3lla/Miq-s-Journey',
         stack: ['VueJS', 'Tailwind', 'NodeJS', 'ExpressJS', 'MongoDB']
+    },
+    {
+        title: 'VersaDocs',
+        description: 'A SaaS resume building system built with ReactJS and Tailwind CSS. It offers a user-friendly interface for creating and customizing resumes with various templates. Users can easily input their information, choose a template, and download their polished resume in PDF format.',
+        image: '/Project4.png',
+        liveDemoLink: 'https://versadocs.vercel.app',
+        githubLink: 'https://github.com/Necookie/VersaDocs',
+        stack: ['ReactJS', 'Tailwind', 'ReactPDF', 'Cloudflare']
     }
 ]
 
@@ -54,17 +61,6 @@ const projects = [
  * Main page containing Hero, Tech Stack, and Projects sections
  */
 export default function Home() {
-    // State for rotating hero image
-    const [img, setImg] = useState(images[0]);
-    
-    // Rotate hero image randomly every 3 seconds
-    useEffect(() => {
-        const interval = setInterval(()=> {;
-            setImg(images[Math.floor(Math.random() * images.length)]);
-        }, 3000);
-        // Cleanup interval on component unmount
-        return () => clearInterval(interval);
-    },[]);
 
 
     return (
@@ -95,7 +91,7 @@ export default function Home() {
             </AnimatedSection>
             {/* Rotating profile image */}
             <AnimatedSection animation="fadeLeft" delay={200} className='flex justify-center'>
-                <img src={img} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
+                <img src={'/me.png'} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
             </AnimatedSection>
         </section>
 
