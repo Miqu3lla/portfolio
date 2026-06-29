@@ -64,15 +64,18 @@ const [title, setTitle] = useState('Projects');
         </section>
 
         {/* ===== TECH STACK SECTION ===== */}
-        <section>
+        <section id='tech-stack' className='py-16 fade-in-up visible border-y border-outline-variant/20 relative'>
+            <div className='absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none'></div>
+            <div className='absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none'></div>
             <AnimatedSection animation="fadeUp">
-                <div id = 'tech-stack' className = 'scroll-mt-28'>
-                <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Tech Stack</h1>
-                <p className='text-center text-gray-600 mt-3 sm:mt-5 text-sm sm:text-base'>Technologies and tools I work with</p>
+                <div className='mb-12'>
+                    <h2 className='text-center text-3xl font-bold text-on-background'>Tech <span className='text-primary-fixed-dim'>Stack</span></h2>
+                    <p className='text-center text-on-surface-variant mt-2 text-sm uppercase font-code-inline'>Technologies and tools I work with</p>
                 </div>
             </AnimatedSection>
-            {/* Map through techStack array and render StackCard for each */}
-            <div className = 'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mt-6 sm:mt-10 mb-10'>
+            
+            {/* Tech Stack Grid */}
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto'>
                 {techStack.map((tech, index) => (
                     <AnimatedSection key={tech.title} animation="scaleUp" delay={index * 50}>
                         <StackCard title={tech.title} subtitle={tech.description} />
