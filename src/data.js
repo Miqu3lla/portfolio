@@ -38,11 +38,35 @@ export const projects = [
     },
     {
         title: 'VersaDocs',
-        description: 'A SaaS resume building system built with ReactJS and Tailwind CSS. It offers a user-friendly interface for creating and customizing resumes with various templates. Users can easily input their information, choose a template, and download their polished resume in PDF format.',
+        description: 'A SaaS resume building system built with NextJS and Tailwind CSS. It offers a user-friendly interface for creating and customizing resumes with various templates. Users can easily input their information, choose a template, and download their polished resume in PDF format.',
         image: '/Project4.png',
         liveDemoLink: 'https://versadocs.vercel.app',
         githubLink: 'https://github.com/Necookie/VersaDocs',
-        stack: ['ReactJS', 'Tailwind', 'ReactPDF', 'Cloudflare']
+        stack: ['NextJS', 'Tailwind', 'ReactPDF', 'Cloudflare']
+    },
+    {
+        title: 'LifeHub',
+        description: 'LifeHub is your own very personal central hub built in with a personal expense management and a habit tracker to track your daily habits everyday',
+        image: '/Project5.png',
+        liveDemoLink: 'https://lifehub.vercel.app',
+        githubLink: 'https://github.com/Miqu3lla/LifeHub',
+        stack: ['React', 'Tailwind', 'NodeJS', 'ExpressJS', 'PostgreSQL', 'Drizzle ORM']
+    },
+    {
+        title: 'TheraMotion Mobile App',
+        description: 'A thesis project during my 3rd year. Is an Ai assisted mobile app aimed to help patients from 3-6 months recovery from stroke in clinic',
+        image: '/Project6.png',
+        liveDemoLink: '#',
+        githubLink: 'https://github.com/Miqu3lla/Stroke_Rehab_System',
+        stack: ['React Native', 'FastAPI', 'Pytorch', 'Supabase', 'MediaPipe Pose']
+    },
+    {
+        title: 'TheraMotion Web App',
+        description: 'The website version of it, mainly used by the clinic to monitor active patients and to monitor their results',
+        image: '/Project7.png',
+        liveDemoLink: 'https://theramotion-web-app.vercel.app',
+        githubLink: '#',
+        stack: ['React', 'Tailwind', 'Supabase']
     }
 ];
 
