@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import { Icon } from '@iconify/react'
+import { motion } from 'framer-motion'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 import AnimatedSection from '../components/AnimatedSection.jsx'
@@ -64,7 +65,7 @@ const [title, setTitle] = useState('Projects');
         </section>
 
         {/* ===== TECH STACK SECTION ===== */}
-        <section id='tech-stack' className='py-16 fade-in-up visible border-y border-outline-variant/20 relative'>
+        <section id='tech-stack' className='py-16 fade-in-up visible border-y border-outline-variant/20 relative overflow-hidden'>
             <div className='absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none'></div>
             <div className='absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none'></div>
             <AnimatedSection animation="fadeUp">
@@ -74,13 +75,23 @@ const [title, setTitle] = useState('Projects');
                 </div>
             </AnimatedSection>
             
-            {/* Tech Stack Grid */}
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-5xl mx-auto'>
-                {techStack.map((tech, index) => (
-                    <AnimatedSection key={tech.title} animation="scaleUp" delay={index * 50}>
-                        <StackCard title={tech.title} subtitle={tech.description} />
-                    </AnimatedSection>
-                ))}
+            {/* Tech Stack Marquee */}
+            <div className='flex overflow-hidden whitespace-nowrap py-4 max-w-full relative'>
+                <motion.div
+                    className='flex gap-6 min-w-max pr-6'
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{
+                        repeat: Infinity,
+                        ease: "linear",
+                        duration: 30
+                    }}
+                >
+                    {[...techStack, ...techStack].map((tech, index) => (
+                        <div key={`${tech.title}-${index}`} className="w-64 flex-shrink-0">
+                            <StackCard title={tech.title} subtitle={tech.description} />
+                        </div>
+                    ))}
+                </motion.div>
             </div>
         </section>
 
