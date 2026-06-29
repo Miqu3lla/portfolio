@@ -21,33 +21,46 @@ const [title, setTitle] = useState('Projects');
     return (
         <main className=''>
         {/* ===== HERO SECTION ===== */}
-        <section id = 'home'className = 'flex flex-col lg:flex-row justify-between items-center'>
-            {/* Introduction text */}
-            <AnimatedSection animation="fadeRight" className='w-full max-w-lg flex flex-col justify-center text-center lg:text-left mt-30 lg:mt-0'>
-                <h1 className='text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-dark'>Hello, I'm <span className='text-primary'>Miq!</span></h1>
-                <p className='mt-5 lg:mt-7 text-xl sm:text-2xl text-gray-500'>Full Stack Developer / Front-End Focused</p>
-                <p className='mt-3 lg:mt-5 text-base sm:text-lg text-gray-600 max-w-lg'>I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.</p>
-                
-                {/* Social Icons */}
-                <div className='flex justify-center lg:justify-start gap-4 mt-6'>
-                    <a href='https://github.com/Miqu3lla' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
-                        <Icon icon='mdi:github' className='text-2xl text-gray-700' />
+        <section id='home' className='min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between gap-[var(--spacing-gutter)] py-12 md:py-24 fade-in-up visible'>
+            {/* Left: Content */}
+            <div className='flex-1 flex flex-col gap-6 w-full text-center md:text-left items-center md:items-start'>
+                <div className='inline-block px-3 py-1 bg-primary-fixed-dim/10 text-primary-fixed-dim text-sm rounded border border-primary-fixed-dim/20 w-max mb-4'>
+                    <span className='mr-2 font-mono'>&gt;</span> <span className="font-mono">System initialized.</span>
+                </div>
+                <h1 className='text-5xl md:text-6xl lg:text-7xl font-bold text-on-background'>
+                    Hi, I'm <br/>
+                    <span className='text-primary-fixed-dim text-glow-cyan'>Miq</span>
+                </h1>
+                <p className='text-lg md:text-xl text-on-surface-variant max-w-xl'>
+                    Full Stack Developer / Front-End Focused. I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.
+                </p>
+                <div className='flex flex-wrap justify-center md:justify-start gap-4 mt-8'>
+                    <a href="https://github.com/Miqu3lla" target="_blank" rel="noreferrer" className='bg-primary-fixed-dim text-black font-semibold text-sm px-8 py-3 rounded hover:bg-primary-fixed transition-colors box-glow-cyan flex items-center gap-2'>
+                        <Icon icon='mdi:github' className='text-xl' /> GitHub
                     </a>
-                    <a href='https://www.linkedin.com/in/javier-jaypee-722999383/' className='bg-white rounded-full p-4 shadow-md hover:shadow-lg transition-shadow'>
-                        <Icon icon='mdi:linkedin' className='text-2xl text-blue-600' />
+                    <button className='bg-transparent border border-secondary-container text-secondary-fixed hover:bg-secondary-container/10 font-semibold text-sm px-8 py-3 rounded transition-all box-glow-violet flex items-center gap-2'>
+                        <Icon icon='mdi:download' className='text-xl' /> View Resume
+                    </button>
+                </div>
+                <div className='flex justify-center md:justify-start gap-6 mt-12 text-on-surface-variant'>
+                    <a href='https://www.linkedin.com/in/javier-jaypee-722999383/' target="_blank" rel="noreferrer" className='hover:text-primary-fixed-dim transition-colors text-3xl'>
+                        <Icon icon='mdi:linkedin' />
+                    </a>
+                    <a href='mailto:your.email@example.com' className='hover:text-primary-fixed-dim transition-colors text-3xl'>
+                        <Icon icon='mdi:email' />
                     </a>
                 </div>
-
-                {/* Download Resume Button */}
-                <button className='bg-slate-600 hover:bg-slate-700 text-white px-6 py-3 rounded-lg flex items-center justify-center gap-2 mt-6 transition-colors mx-auto lg:mx-0'>
-                    <Icon icon='mdi:download' className='text-xl' />
-                    Download Resume
-                </button>
-            </AnimatedSection>
-            {/* Rotating profile image */}
-            <AnimatedSection animation="fadeLeft" delay={200} className='flex justify-center'>
-                <img src={'/myself.png'} alt="Profile Picture" className='h-auto min-w-[300px] w-full  max-w-xl m-20 mt-30 rounded-md'/>
-            </AnimatedSection>
+            </div>
+            {/* Right: Profile Image in Cyber Frame */}
+            <div className='flex-1 w-full max-w-md md:max-w-none relative flex justify-center items-center mb-12 md:mb-0'>
+                <div className='absolute inset-0 bg-primary-fixed-dim/5 rounded-full blur-3xl animate-pulse-slow'></div>
+                <div className='relative w-full aspect-square max-w-[400px] animate-float glass-panel rounded-xl overflow-hidden p-2'>
+                    <img src={'/myself.png'} alt="Profile Picture" className='w-full h-full object-cover rounded-lg border border-outline-variant/50 opacity-90' />
+                    {/* Decorative HUD elements */}
+                    <div className='absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-primary-fixed-dim/50'></div>
+                    <div className='absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-primary-fixed-dim/50'></div>
+                </div>
+            </div>
         </section>
 
         {/* ===== TECH STACK SECTION ===== */}
