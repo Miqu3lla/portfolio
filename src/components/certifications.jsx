@@ -1,34 +1,30 @@
-
-
 import { Icon } from '@iconify/react';
 
 function CertificationCard({ image, title, description, link }) {
     return (
-        <main className='mb-20'>
-            <section className='flex flex-col max-w-md shadow-xl m-5 rounded-md hover:-translate-y-2 transition-transform hover:shadow-2xl'>
-                <div className='rounded-t-md'>
-                    <img src={image} alt={title} className='object-cover w-full h-60 rounded-t-md' />
-                </div>
-                <div className='ml-5 mr-5 mt-3'>
-                    <h1 className='text-2xl font-bold'>{title}</h1>
-                    <p className='text-gray-600 mt-3'>{description}</p>
-                </div>
-                <div className='flex flex-col sm:flex-row gap-3 ml-5 mr-5 sm:mr-0 mb-5 mt-5'>
-                    <a href={link} target='_blank' rel='noopener noreferrer'>
-                        <button className='bg-primary text-white px-4 sm:px-6 py-3 rounded-full hover:bg-primary-dark hover:cursor-pointer transition-colors w-full sm:w-48 h-12 flex items-center justify-center gap-2'>
-                            <Icon icon='mdi:certificate' width='20' height='20' />
-                            View Certificate
+        <div className="glass-panel rounded-xl overflow-hidden flex flex-col group relative w-full h-full">
+            <div className="h-48 w-full bg-surface-container-high relative overflow-hidden border-b border-outline-variant/30">
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary-container/30 to-transparent mix-blend-overlay"></div>
+                <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-100" />
+            </div>
+            <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-on-surface mb-2 group-hover:text-secondary-fixed transition-colors">{title}</h3>
+                <p className="text-sm text-on-surface-variant mb-6 flex-grow">{description}</p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                    <a href={link} target='_blank' rel='noopener noreferrer' className="w-full">
+                        <button className="w-full py-2 bg-transparent border border-outline-variant hover:border-secondary-fixed text-on-surface hover:text-secondary-fixed text-sm font-semibold transition-all rounded flex items-center justify-center gap-2">
+                            <Icon icon='mdi:certificate' className="text-lg" /> View Certificate
                         </button>
                     </a>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
     );
 }
 
 export default function Certifications() {
     return (
-        <div className='min-h-screen flex items-center justify-center bg-primary-dark text-primary-light'>
+        <div className='min-h-screen flex items-center justify-center bg-background text-on-background'>
             <h1 className='text-4xl font-bold'>Certifications Page - Coming Soon!</h1>
         </div>
     );

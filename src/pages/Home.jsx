@@ -85,19 +85,32 @@ const [title, setTitle] = useState('Projects');
         </section>
 
         {/* ===== PROJECTS SECTION ===== */}
-        <section id = 'projects' className = 'mb-20 scroll-mt-28'>
-            <AnimatedSection animation="fadeUp">
+        <section id='projects' className='py-24 fade-in-up visible'>
+            <div className='flex flex-col md:flex-row justify-between items-end mb-12 gap-6'>
                 <div>
-                <h1 className = 'text-center text-2xl sm:text-3xl lg:text-4xl font-bold'>Projects / Certifications</h1>
-                <div className='flex justify-center gap-3 mt-5'>
-                    <p onClick={() => setTitle('Projects')} className={`px-6 py-2 rounded-full font-semibold cursor-pointer transition-colors ${title === 'Projects' ? 'bg-primary text-white' : 'border-2 border-primary text-primary hover:bg-primary-light'}`}>Projects</p>
-                    <p onClick={() => setTitle('Certifications')} className={`px-6 py-2 rounded-full font-semibold cursor-pointer transition-colors ${title === 'Certifications' ? 'bg-primary text-white' : 'border-2 border-primary text-primary hover:bg-primary-light'}`}>Certifications</p>
+                    <h2 className='text-3xl md:text-4xl font-bold text-on-background mb-2'>System <span className='text-primary-fixed-dim'>Outputs</span></h2>
+                    <p className='text-on-surface-variant'>Deployed projects and verified certifications.</p>
                 </div>
+                {/* Tabs */}
+                <div className='flex bg-surface-container rounded-lg p-1 border border-outline-variant/30 w-full md:w-auto'>
+                    <button 
+                        onClick={() => setTitle('Projects')} 
+                        className={`flex-1 md:flex-none px-6 py-2 rounded text-sm font-semibold transition-colors ${title === 'Projects' ? 'bg-surface-bright text-primary-fixed-dim shadow-sm border border-outline-variant/50' : 'text-on-surface-variant hover:text-on-surface'}`}
+                    >
+                        Projects
+                    </button>
+                    <button 
+                        onClick={() => setTitle('Certifications')} 
+                        className={`flex-1 md:flex-none px-6 py-2 rounded text-sm font-semibold transition-colors ${title === 'Certifications' ? 'bg-surface-bright text-primary-fixed-dim shadow-sm border border-outline-variant/50' : 'text-on-surface-variant hover:text-on-surface'}`}
+                    >
+                        Certifications
+                    </button>
                 </div>
-            </AnimatedSection>
-            {/* Map through projects array and render Projects card for each */}
-            <div className = 'mt-6 sm:mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 justify-items-center'>
-                { title === 'Projects' ? projects.map((project, index) => (
+            </div>
+
+            {/* Grid */}
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                {title === 'Projects' ? projects.map((project, index) => (
                     <AnimatedSection key={project.title} animation="fadeUp" delay={index * 150}>
                         <Projects title={project.title} description={project.description} image={project.image} liveDemoLink={project.liveDemoLink} githubLink={project.githubLink} stack={project.stack} />
                     </AnimatedSection>
@@ -108,21 +121,19 @@ const [title, setTitle] = useState('Projects');
                 ))}
             </div>
         </section>
-
-        {/* Divider line */}
-        <hr className='border-gray-300 ' />
-
+        
         {/* ===== FOOTER SECTION ===== */}
-        <AnimatedSection animation="fadeIn">
-            <footer className='  py-8 mt-10'>
-                <div className='container mx-auto px-4 text-center'>
-                    <p className='text-lg font-semibold opacity-50'>Miq</p>
-                    <p className='text-gray-400 mt-2 text-sm'>Full Stack Developer</p>
-                    <hr className='my-4 border-gray-600 w-1/2 mx-auto' />
-                    <p className='text-gray-400 text-sm'>&copy; {new Date().getFullYear()} Miq. All rights reserved.</p>
+        <footer className='bg-surface-container-lowest w-full py-8 mt-24 border-t border-outline-variant/20'>
+            <div className='flex flex-col md:flex-row justify-between items-center gap-4 max-w-[var(--spacing-container-max)] mx-auto w-full'>
+                <div className='font-code-inline text-xs text-on-surface-variant uppercase text-center md:text-left'>
+                    © {new Date().getFullYear()} DIGITAL_CRAFTSMAN | MIQ. ALL RIGHTS RESERVED.
                 </div>
-            </footer>
-        </AnimatedSection>
+                <div className='flex gap-6'>
+                    <a className='text-on-tertiary-container hover:text-primary-container transition-colors opacity-80 hover:opacity-100 text-sm font-semibold' href='https://github.com/Miqu3lla'>GitHub</a>
+                    <a className='text-on-tertiary-container hover:text-primary-container transition-colors opacity-80 hover:opacity-100 text-sm font-semibold' href='https://www.linkedin.com/in/javier-jaypee-722999383/'>LinkedIn</a>
+                </div>
+            </div>
+        </footer>
         </main>
     )
 }
