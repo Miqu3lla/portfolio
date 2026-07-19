@@ -18,7 +18,7 @@ export default function StackCard({ title, subtitle }) {
     };
 
     return (
-        <div className="glass-panel p-6 flex flex-col items-center justify-center gap-3 hover:border-primary-fixed-dim hover:box-glow-cyan transition-all cursor-default rounded-xl">
+        <div className="glass-panel border-none p-6 flex flex-col items-center justify-center gap-3 hover:border-primary-fixed-dim hover:box-glow-cyan transition-all cursor-default rounded-xl">
             <Icon icon={getIcon(title)} className="text-4xl text-primary-fixed-dim" />
             <h2 className="text-lg font-semibold text-on-surface">{title}</h2>
             <p className="font-code-inline text-xs text-on-surface-variant uppercase text-center">{subtitle}</p>

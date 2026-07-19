@@ -33,7 +33,7 @@ const [title, setTitle] = useState('Projects');
                     <span className='text-primary-fixed-dim text-glow-cyan'>Miq</span>
                 </h1>
                 <p className='text-lg md:text-xl text-on-surface-variant max-w-xl'>
-                    Full Stack Developer / Front-End Focused. I am a passionate developer with experience in building web applications using modern technologies. I love creating beautiful and functional user interfaces.
+                    Backend-Focused Full Stack Developer. I enjoy building reliable and scalable web applications, with a strong interest in backend architecture, API design, caching, validation, and distributed systems. I'm constantly learning modern technologies and enjoy understanding not just how to build software, but why it works.
                 </p>
                 <div className='flex flex-wrap justify-center md:justify-start gap-4 mt-8'>
                     <a href="https://github.com/Miqu3lla" target="_blank" rel="noreferrer" className='bg-primary-fixed-dim text-black font-semibold text-sm px-8 py-3 rounded hover:bg-primary-fixed transition-colors box-glow-cyan flex items-center gap-2'>
@@ -65,9 +65,9 @@ const [title, setTitle] = useState('Projects');
         </section>
 
         {/* ===== TECH STACK SECTION ===== */}
-        <section id='tech-stack' className='py-16 fade-in-up visible border-y border-outline-variant/20 relative overflow-hidden'>
-            <div className='absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none'></div>
-            <div className='absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none'></div>
+        <section id='tech-stack' className='py-16 fade-in-up visible relative overflow-hidden'>
+            <div className='absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none'></div>
+            <div className='absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none'></div>
             <AnimatedSection animation="fadeUp">
                 <div className='mb-12'>
                     <h2 className='text-center text-3xl font-bold text-on-background'>Tech <span className='text-primary-fixed-dim'>Stack</span></h2>
@@ -82,7 +82,7 @@ const [title, setTitle] = useState('Projects');
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{
                         repeat: Infinity,
-                        ease: "linear",
+                        ease: "easeInOut",
                         duration: 30
                     }}
                 >
