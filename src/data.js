@@ -76,5 +76,11 @@ export const certifications = [
         title: 'Udemy Full Stack Developer course - Angela Yu',
         description: 'A udemy course thet covers the fundamentals of Full stack web development, it includes technologies like HTML, CSS, Javascript, Node, React, PostgreSQL, Web3 and DApps',
         link: 'https://www.udemy.com/certificate/UC-9a74d3e1-95db-4bf7-bb16-c7651636d061/'
+    },
+    {
+        image: '/cert2.png',
+        title: 'Claude Code 101 - Anthropic',
+        description: 'A certificate of completion from Anthropic covering the fundamentals of using Claude Code as an agentic coding tool.',
+        link: 'https://verify.skilljar.com/c/dfbwjk3xtp2s'
     }
 ];
