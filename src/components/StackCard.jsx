@@ -20,10 +20,10 @@ export default function StackCard({ title, subtitle }) {
     };
 
     return (
-        <div className="glass-panel border-none p-6 flex flex-col items-center justify-center gap-3 hover:border-primary-fixed-dim hover:box-glow-cyan transition-all cursor-default rounded-xl">
-            <Icon icon={getIcon(title)} className="text-4xl text-primary-fixed-dim" />
-            <h2 className="text-lg font-semibold text-on-surface">{title}</h2>
-            <p className="font-code-inline text-xs text-on-surface-variant uppercase text-center">{subtitle}</p>
+        <div className="group glass-panel p-6 flex flex-col items-center justify-center gap-3 rounded-xl cursor-default transition-all duration-300 ease-out hover:-translate-y-1.5 hover:scale-[1.03] hover:border-primary-fixed-dim hover:box-glow-cyan">
+            <Icon icon={getIcon(title)} className="text-4xl text-primary-fixed-dim transition-transform duration-300 ease-out group-hover:scale-110 group-hover:text-glow-cyan" />
+            <h2 className="text-lg font-semibold text-on-surface transition-colors duration-300 group-hover:text-primary-fixed-dim">{title}</h2>
+            <p className="font-code-inline text-xs text-on-surface-variant uppercase text-center transition-colors duration-300 group-hover:text-on-surface">{subtitle}</p>
         </div>
     )
 }
