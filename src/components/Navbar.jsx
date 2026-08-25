@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 
 const NavItems = ['Home', 'Tech Stack', 'Projects', 'Certifications'];
@@ -10,6 +10,9 @@ export default function Navbar() {
     });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // A programmatic scroll (nav click) is in flight; ignore scrollspy updates until it settles
+    const isScrollingProgrammatically = useRef(false);
+
     useEffect(() => {
         const saved = localStorage.getItem('activeSection');
         if (saved) {
@@ -18,7 +21,7 @@ export default function Navbar() {
             else if (saved === 'Home') sectionId = 'home';
             else if (saved === 'Projects') sectionId = 'projects';
             else if (saved === 'Certifications') sectionId = 'projects'; // Certs are in the projects section
-            
+
             const element = document.getElementById(sectionId);
             if (element) {
                 setTimeout(() => {
@@ -28,20 +31,56 @@ export default function Navbar() {
         }
     }, []);
 
+    // Scrollspy: highlight the nav item for whichever section is currently in view
+    useEffect(() => {
+        const sectionNameMap = { home: 'Home', 'tech-stack': 'Tech Stack', projects: 'Projects' };
+        const sections = Object.keys(sectionNameMap)
+            .map((id) => document.getElementById(id))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (isScrollingProgrammatically.current) return;
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+                    const name = sectionNameMap[entry.target.id];
+                    setActiveSection((prev) => {
+                        // Projects/Certifications share the same section id, so scrolling
+                        // shouldn't override the tab the user already picked
+                        if (name === 'Projects' && prev === 'Certifications') return prev;
+                        return name;
+                    });
+                });
+            },
+            { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+        );
+
+        sections.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
+    // Keep the active section persisted whenever it changes (click or scroll)
+    useEffect(() => {
+        localStorage.setItem('activeSection', activeSection);
+    }, [activeSection]);
+
     const handleNavClick = (sectionId) => {
         setActiveSection(sectionId);
-        
+
         let targetId = '';
         if (sectionId === 'Tech Stack') targetId = 'tech-stack';
         else if (sectionId === 'Home') targetId = 'home';
         else if (sectionId === 'Projects' || sectionId === 'Certifications') targetId = 'projects';
-        
+
         const element = document.getElementById(targetId);
         if (element) {
+            isScrollingProgrammatically.current = true;
             element.scrollIntoView({ behavior: 'smooth' });
+            // Release the lock once the smooth scroll has had time to finish
+            setTimeout(() => {
+                isScrollingProgrammatically.current = false;
+            }, 800);
         }
-        
-        localStorage.setItem('activeSection', sectionId);
     }
     
     return (

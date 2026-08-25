@@ -1,11 +1,9 @@
 import {useState, useEffect} from 'react'
 import { Icon } from '@iconify/react'
-import { motion } from 'framer-motion'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 import AnimatedSection from '../components/AnimatedSection.jsx'
 import { CertificationCard } from '../components/certifications.jsx'
-import Footer from '../components/Footer.jsx'
 import { techStack, projects, certifications } from '../data.js'
 
 
@@ -66,33 +64,21 @@ const [title, setTitle] = useState('Projects');
         </section>
 
         {/* ===== TECH STACK SECTION ===== */}
-        <section id='tech-stack' className='py-16 fade-in-up visible relative overflow-hidden'>
-            <div className='absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none'></div>
-            <div className='absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none'></div>
+        <section id='tech-stack' className='py-16 fade-in-up visible relative'>
             <AnimatedSection animation="fadeUp">
                 <div className='mb-12'>
                     <h2 className='text-center text-3xl font-bold text-on-background'>Tech <span className='text-primary-fixed-dim'>Stack</span></h2>
                     <p className='text-center text-on-surface-variant mt-2 text-sm uppercase font-code-inline'>Technologies and tools I work with</p>
                 </div>
             </AnimatedSection>
-            
-            {/* Tech Stack Marquee */}
-            <div className='flex overflow-hidden whitespace-nowrap py-4 max-w-full relative'>
-                <motion.div
-                    className='flex gap-6 min-w-max pr-6'
-                    animate={{ x: ["0%", "-50%"] }}
-                    transition={{
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        duration: 30
-                    }}
-                >
-                    {[...techStack, ...techStack].map((tech, index) => (
-                        <div key={`${tech.title}-${index}`} className="w-64 flex-shrink-0">
-                            <StackCard title={tech.title} subtitle={tech.description} />
-                        </div>
-                    ))}
-                </motion.div>
+
+            {/* Tech Stack Grid */}
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6'>
+                {techStack.map((tech, index) => (
+                    <AnimatedSection key={tech.title} animation="fadeUp" delay={index * 60}>
+                        <StackCard title={tech.title} subtitle={tech.description} />
+                    </AnimatedSection>
+                ))}
             </div>
         </section>
 

@@ -11,6 +11,8 @@ export default function StackCard({ title, subtitle }) {
         if (lower.includes('tailwind')) return 'mdi:tailwind';
         if (lower.includes('node')) return 'mdi:nodejs';
         if (lower.includes('mongo')) return 'mdi:database';
+        if (lower.includes('postgres')) return 'simple-icons:postgresql';
+        if (lower.includes('redis')) return 'simple-icons:redis';
         if (lower.includes('vue')) return 'mdi:vuejs';
         if (lower.includes('express')) return 'mdi:server';
         if (lower.includes('git')) return 'mdi:git';

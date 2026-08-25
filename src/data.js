@@ -8,6 +8,8 @@ export const techStack = [
     { title: 'MongoDB', description: 'database' },
     { title: 'VueJS', description: 'frontend framework' },
     { title: 'ExpressJS', description: 'backend framework' },
+    { title: 'PostgreSQL', description: 'database' },
+    { title: 'Redis', description: 'caching' },
     { title: 'Git', description: 'version control' }
 ];
 

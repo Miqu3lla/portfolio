@@ -26,7 +26,7 @@ export default function Footer() {
             {/* Ambient glow accent */}
             <div className='absolute -top-24 left-1/2 -translate-x-1/2 w-[500px] h-[200px] bg-primary-fixed-dim/5 blur-3xl rounded-full pointer-events-none'></div>
 
-            <div className='max-w-[var(--spacing-container-max)] mx-auto w-full px-4'>
+            <div className='max-w-[var(--spacing-container-max)] mx-auto w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]'>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-outline-variant/20'>
                     {/* Brand */}
                     <div className='flex flex-col gap-3 text-center md:text-left items-center md:items-start'>
