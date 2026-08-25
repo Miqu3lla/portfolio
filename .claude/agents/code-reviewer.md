@@ -1,3 +1,4 @@
+
 ---
 name: code-reviewer
 description: Reviews staged/committed code for bugs, security issues, and quality problems before it is pushed. Invoked automatically by the pre-push hook; can also be called manually to review the current diff.

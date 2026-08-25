@@ -5,6 +5,7 @@ import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
 import AnimatedSection from '../components/AnimatedSection.jsx'
 import { CertificationCard } from '../components/certifications.jsx'
+import Footer from '../components/Footer.jsx'
 import { techStack, projects, certifications } from '../data.js'
 
 
@@ -132,19 +133,7 @@ const [title, setTitle] = useState('Projects');
                 ))}
             </div>
         </section>
-        
-        {/* ===== FOOTER SECTION ===== */}
-        <footer className='bg-surface-container-lowest w-full py-8 mt-24 border-t border-outline-variant/20'>
-            <div className='flex flex-col md:flex-row justify-between items-center gap-4 max-w-[var(--spacing-container-max)] mx-auto w-full'>
-                <div className='font-code-inline text-xs text-on-surface-variant uppercase text-center md:text-left'>
-                    © {new Date().getFullYear()} DIGITAL_CRAFTSMAN | MIQ. ALL RIGHTS RESERVED.
-                </div>
-                <div className='flex gap-6'>
-                    <a className='text-on-tertiary-container hover:text-primary-container transition-colors opacity-80 hover:opacity-100 text-sm font-semibold' href='https://github.com/Miqu3lla'>GitHub</a>
-                    <a className='text-on-tertiary-container hover:text-primary-container transition-colors opacity-80 hover:opacity-100 text-sm font-semibold' href='https://www.linkedin.com/in/javier-jaypee-722999383/'>LinkedIn</a>
-                </div>
-            </div>
-        </footer>
+
         </main>
     )
 }
