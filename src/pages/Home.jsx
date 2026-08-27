@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 import { Icon } from '@iconify/react'
 import StackCard from '../components/StackCard.jsx'
 import Projects from '../components/Projects.jsx'
@@ -38,11 +38,9 @@ const [title, setTitle] = useState('Projects');
                     <a href="https://github.com/Miqu3lla" target="_blank" rel="noreferrer" className='bg-primary-fixed-dim text-black font-semibold text-sm px-8 py-3 rounded hover:bg-primary-fixed transition-colors box-glow-cyan flex items-center gap-2'>
                         <Icon icon='mdi:github' className='text-xl' /> GitHub
                     </a>
-                    <button className='bg-transparent border border-secondary-container text-secondary-fixed hover:bg-secondary-container/10 font-semibold text-sm px-8 py-3 rounded transition-all box-glow-violet'>
-                        <a href="public/resume.pdf" download={true} className='flex items-center gap-2'>
+                    <a href="/resume.pdf" download className='bg-transparent border border-secondary-container text-secondary-fixed hover:bg-secondary-container/10 font-semibold text-sm px-8 py-3 rounded transition-all box-glow-violet flex items-center gap-2'>
                         <Icon icon='mdi:download' className='text-xl' /> View Resume
-                        </a>
-                    </button>
+                    </a>
                 </div>
                 <div className='flex justify-center md:justify-start gap-6 mt-12 text-on-surface-variant'>
                     <a href='https://www.linkedin.com/in/javier-jaypee-722999383/' target="_blank" rel="noreferrer" className='hover:text-primary-fixed-dim transition-colors text-3xl'>
